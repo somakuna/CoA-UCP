@@ -16,7 +16,6 @@
                                     id="char_name"
                                     name="char_name"
                                     type="text"
-                                    pattern="/^[A-Za-z]+\_[A-Za-z]+$/"
                                     value="{{old('char_name')}}"
                                     class="form-control bg-white text-primary @error('char_name') is-invalid @enderror"
                                     placeholder="Ime_Prezime"
@@ -66,7 +65,14 @@
                             </div>
                             <div class="col-md-12">
                                 <label class="form-label" for="number">Text:</label>
-                                <textarea id="app_text" type="text" rows="10" class="form-control @error('app_text') is-invalid @enderror" name="app_text">{{old('app_text')}}</textarea>
+                                <textarea 
+                                    id="app_text" 
+                                    type="text" 
+                                    rows="10" 
+                                    class="form-control @error('app_text') is-invalid @enderror" 
+                                    name="app_text"
+                                    placeholder="Napišite što želite roleplayati na našoj zajednici?"
+                                >{{old('app_text')}}</textarea>
                             </div>
                         </div>
                         <div class="row g-3 mt-1 justify-content-center">
