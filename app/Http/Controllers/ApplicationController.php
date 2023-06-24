@@ -31,7 +31,7 @@ class ApplicationController extends Controller
 
     public function index()
     {
-        $applications = Application::get();
+        $applications = Application::orderBy('id', 'DESC')->get();
         $pendingApplications = $applications->where('status', 'Pending');
         $activities = Activity::orderBy('id', 'DESC')->paginate(8);
 
