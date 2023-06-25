@@ -71,7 +71,7 @@
                                     rows="10" 
                                     class="form-control @error('app_text') is-invalid @enderror" 
                                     name="app_text"
-                                    placeholder="Napišite što želite roleplayati na našoj zajednici?"
+                                    placeholder="Napišite što želite roleplayati? (min 200, max 500 slova)"
                                 >{{old('app_text')}}</textarea>
                             </div>
                         </div>
