@@ -106,7 +106,7 @@ class ApplicationController extends Controller
                 'age' => $application->char_dob,
                 'sex' => $application->char_sex,
                 'handMoney' => 1500,
-                'bankMoney' => 5000,
+                'bankMoney' => 500,
                 'jobkey' => 0,
                 'playaskin' => 29,
                 'casinocool' => 5,
