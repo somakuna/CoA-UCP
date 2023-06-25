@@ -50,12 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:32', 'unique:users'],
             'email' => ['required', 'string', 'email:rfc,dns', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'forum_name' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'forum_name' => ['required', 'string', 'max:255', 'unique:users'],
             'forum_id' => ['required', 'integer', 'unique:users'],
-
         ]);
     }
 
@@ -73,6 +72,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'forum_name' => $data['forum_name'],
             'forum_id' => $data['forum_id'],
+            'ip' =>  request()->ip(), 
         ]);
     }
 }

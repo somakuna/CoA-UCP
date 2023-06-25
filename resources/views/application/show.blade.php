@@ -26,7 +26,7 @@
                                 <li class="list-group-item"><strong>Apply date:</strong>  {{$application->created_at->format('d.m.Y. H:i')}}</li>
                                 <li class="list-group-item"><strong>Character nickname:</strong>  {{$application->char_name}}</li>
                                 <li class="list-group-item"><strong>Character sex:</strong>  {{ ($application->char_sex == 1) ? 'Muško' : 'Žensko'}}</li>
-                                <li class="list-group-item"><strong>Character DOB:</strong>  {{$application->char_dob}}</li>
+                                <li class="list-group-item"><strong>Character age:</strong>  {{$application->char_dob}}</li>
                                 <li class="list-group-item"><strong>Application text:</strong> <br>{{$application->app_text}}</li>
                                 @if($application->account_id)
                                 <li class="list-group-item"><strong>Account ID:</strong>  {{$application->account_id}}</li>

@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-3">
-  <div class="row g-3 ">
+<div class="container-fluid py-3">
+  <div class="row g-2">
     <div class="col-sm-6">
-      <p class="fs-1">Apps waiting for response</p>
+      <div class="p-3 bg-white shadow">
+      <p class="fs-1">Apps waiting for response ({{$pendingApplications->count()}})</p>
         <div class="table-responsive">
           <table 
               class="table table-sm table-striped table-bordered text-center align-middle" 
@@ -38,9 +39,11 @@
                   @endforeach
               </tbody>
           </table>
+        </div>
       </div>
     </div>
     <div class="col-sm-6">
+      <div class="p-3 bg-white shadow">
       <p class="fs-1">Latest apps</p>
         <div class="table-responsive">
           <table 
@@ -75,30 +78,33 @@
                   @endforeach
               </tbody>
           </table>
+        </div>
       </div>
     </div>
     <div class="col-sm-12">
-      <p class="fs-1">Logs</p>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Who</th>
-            <th scope="col">Action</th>
-            <th scope="col">Datetime</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($activities as $activity)
-          <tr>
-            <td>{{$activity->causer->name}}</td>
-            <td>{{$activity->description}}</td>
-            <td>{{$activity->created_at->format('d.m.Y. H:i')}}</td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
+      <div class="p-3 bg-white shadow">
+        <p class="fs-1">Logs</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Who</th>
+              <th scope="col">Action</th>
+              <th scope="col">Datetime</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($activities as $activity)
+            <tr>
+              <td>{{$activity->causer->name}}</td>
+              <td>{{$activity->description}}</td>
+              <td>{{$activity->created_at->format('d.m.Y. H:i')}}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+        {{ $activities->links() }}
+      </div>
     </div>
-    {{ $activities->links() }}
   </div>
 </div>
 @endsection

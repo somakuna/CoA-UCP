@@ -26,6 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'forum_name',
         'forum_id',
+        'ip',
     ];
 
     /**

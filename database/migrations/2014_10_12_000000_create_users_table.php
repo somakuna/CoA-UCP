@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('forum_name');
             $table->integer('forum_id')->unique();
             $table->integer('role')->default(0);
+            $table->string('ip');
             $table->rememberToken();
             $table->timestamps();
         });

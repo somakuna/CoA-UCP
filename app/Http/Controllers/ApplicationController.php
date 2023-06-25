@@ -66,8 +66,8 @@ class ApplicationController extends Controller
             return redirect()->route('home')->with('danger', 'Već imate 5 aplikacija!');
             
         $input = $request->validate([
-            'app_text' => 'required|min:200',
-            'char_name' => 'required|regex:/^[A-Z][a-z]+_[A-Z][a-z]+$/',
+            'app_text' => 'required|min:200|max:500',
+            'char_name' => 'required|max:24|unique:applications|regex:/^[A-Za-z]+_[A-Za-z]+$/',
             'char_password' => 'required|min:6|confirmed',
             'char_dob' => 'required',
             'char_sex' => 'required',
