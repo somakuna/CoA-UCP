@@ -76,9 +76,9 @@ class ApplicationController extends Controller
         $input['user_id'] = Auth::user()->id;
 
         DB::beginTransaction();
-        Application::create($input);
+        $application = Application::create($input);
         DB::commit();
-        activity()->log('je kreirao novu aplikaciju');
+        activity()->log('je kreirao novu aplikaciju za ime ' . $application->char_name);
         return redirect()->route('home')->with('success', 'Poslali ste aplikaciju za kreiranje server računa.');
     }
 
