@@ -9,9 +9,13 @@
         Profile
       </p>
       <h1 class="display-4 text-body-emphasis mb-0">{{ Auth::user()->name}}</h1>
-      <p class="col-lg-8 mx-auto fs-7 text-muted text-uppercase">
+      <p class="col-lg-8 mx-auto fs-7 text-primary text-uppercase">
         {{ Auth::user()->getRoleNames()->first() }}
       </p>
+      <p class="col-lg-8 mx-auto fs-7 text-muted">
+        <strong>FORUM NAME:</strong> {{ Auth::user()->forum_name }} | <strong>FORUM ID:</strong> {{ Auth::user()->id }} | <strong>IP:</strong> {{ Auth::user()->ip }}
+      </p>
+
       @if(Auth::user()->applications->count() < 5)
       <div class="row g-3 mt-1 justify-content-center">
         <div class="col-auto">
