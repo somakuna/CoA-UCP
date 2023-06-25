@@ -113,9 +113,9 @@ class ApplicationController extends Controller
                 'ucp_user_id' => $application->user->id,
             ]);
 
-            $pass = strrev($application->char_name);
-			$hashedPass = "COA$pass$id";
-			$hashedPass = strtoupper(hash('whirlpool',$hashedPass));
+            $pass = strrev($application->char_password);
+			$hashedPass = "COA".$pass.$id;
+			$hashedPass = strtoupper(hash('whirlpool', $hashedPass));
 
             $affected = DB::table('accounts')
               ->where('sqlid', $id)
