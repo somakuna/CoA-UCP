@@ -34,7 +34,13 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal"><a href="{{route('account.show', $application->account_id)}}">{{$application->char_name}}</a></h4>
+            <h4 class="my-0 fw-normal">
+              @if($application->account_id)
+              <a href="{{route('account.show', $application->account_id)}}">{{$application->char_name}}</a>
+              @else
+              {{$application->char_name}}
+              @endif
+            </h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">
