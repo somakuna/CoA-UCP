@@ -20,12 +20,6 @@ class ApplicationController extends Controller
 {
     public function __construct()
     {
-        // Automatically call policy methods for resource controller actions:
-        //  - PostPolicy::viewAny is called for index action
-        //  - PostPolicy::create is called for create and store actions
-        //  - PostPolicy::view is called for show action
-        //  - PostPolicy::update is called for edit and update actions
-        //  - PostPolicy::delete is called for destroy action
         $this->authorizeResource(Application::class);
     }
 
