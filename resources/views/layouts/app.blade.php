@@ -56,7 +56,12 @@
                         @else
                             @role('administrator|moderator')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('application.index') }}">Management</a>
+                                <a class="nav-link" href="{{ route('application.index') }}">
+                                    Management 
+                                    @if(App\Models\Application::where('status', "Pending")->count() > 0)
+                                    <span class="badge text-bg-danger align-middle">{{ App\Models\Application::where('status', "Pending")->count()}}</span>
+                                    @endif
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.index') }}">Users</a>
