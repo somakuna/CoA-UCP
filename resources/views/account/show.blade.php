@@ -6,35 +6,28 @@
   <header>
     <div class="p-5 text-center bg-white shadow rounded-3 mb-5">
       <p class="col-lg-8 mx-auto fs-2 text-muted mb-0">
-        Profile
+        Server Account @if($account->online) <span class="text-success">(ONLINE)</span> @endif
       </p>
-      <h1 class="display-4 text-body-emphasis mb-0">{{ $user->name}}</h1>
+      <h1 class="display-4 text-body-emphasis mb-0">{{ $account->name }}</h1>
       <p class="col-lg-8 mx-auto fs-7 text-danger text-uppercase">
-        {{ $user->getRoleNames()->first() }}
+        @if($account->adminLvl)
+        Admin ({{$account->adminLvl}})
+        @endif
       </p>
       <p class="col-lg-8 mx-auto fs-7 text-muted">
-        <strong>FORUM NAME:</strong> {{ $user->forum_name }} | <strong>FORUM ID:</strong> {{ $user->id }} | <strong>IP:</strong> {{ $user->ip }}
+        <strong>Level:</strong> {{ $account->levels }} | <strong>Hours:</strong> {{ $account->connecttime }} | <strong>UCP User ID:</strong> <a href="{{route('user.show', $account->ucp_user_id)}}">{{ $account->ucp_user_id }}</a>
       </p>
-      
-    @role('administrator')
-    <div class="row g-3 mt-1 justify-content-center">
-      <div class="col-auto">
-          <a href="{{route('user.edit', $user)}}" class="btn btn-outline-primary">
-            <i class="bi bi-pen"></i> Edit
-          </a>
-      </div>
-    </div>
-    @endrole  
+      <img src="https://assets.open.mp/assets/images/skins/{{ $account->playaSkin }}.png" alt="No image" class="img-thumbnail">
     </div>
   </header>
 
   <main>
-    <div class="row mb-3 text-center">
+    {{-- <div class="row mb-3 text-center">
       @foreach ($applications as $application)
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal"><a href="{{route('account.show', $application->account_id)}}">{{$application->char_name}}</a></h4>
+            <h4 class="my-0 fw-normal">{{$application->char_name}}</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">
@@ -61,7 +54,7 @@
         </div>
       </div>
       @endforeach
-    </div>
+    </div> --}}
   </main>
 </div>
 @endsection

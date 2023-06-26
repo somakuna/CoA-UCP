@@ -88,10 +88,8 @@ class ApplicationController extends Controller
             'response_text' => 'required',
             'status' => 'required',
         ]);
-
-        $application->update($input);
-
-        if($application->status == "Accepted")
+        $id = null;
+        if($input['status'] == "Accepted")
         {
             $id = DB::table('accounts')->insertGetId([
                 'registered' => 1,
@@ -113,6 +111,7 @@ class ApplicationController extends Controller
                 'ucp_user_id' => $application->user->id,
             ]);
 
+            $input['account_id'] =  $id;
             $pass = strrev($application->char_password);
 			$hashedPass = "COA".$pass.$id;
 			$hashedPass = strtoupper(hash('whirlpool', $hashedPass));
@@ -120,8 +119,9 @@ class ApplicationController extends Controller
             $affected = DB::table('accounts')
               ->where('sqlid', $id)
               ->update(['password' => $hashedPass]);
-
         }
+
+        $application->update($input);
 
         $application->user->notify(new ApplicationReview($application));
         activity()->log('odgovor na aplikaciju ID: ' . $application->id . ' / Nick: ' . $application->char_name . ' / Status: ' . $application->status);

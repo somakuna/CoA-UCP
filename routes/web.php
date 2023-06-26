@@ -43,12 +43,12 @@ Route::middleware(['auth', 'verified'])->group(function ()
     Route::put('/user/update/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 
     # panel
-    // Route::get('/app/create', [App\Http\Controllers\ApplicationController::class, 'create'])->name('panel.create');
-    // Route::post('/app/store', [App\Http\Controllers\ApplicationController::class, 'store'])->name('panel.store');
-    // Route::get('/app/show/{application}', [App\Http\Controllers\ApplicationController::class, 'show'])->name('panel.show');
-    // Route::get('/app/edit/{application}', [App\Http\Controllers\ApplicationController::class, 'edit'])->name('panel.edit');
-    // Route::get('/app/destroy/{application}', [App\Http\Controllers\ApplicationController::class, 'destroy'])->name('panel.destroy');
-    // Route::put('/app/update/{application}', [App\Http\Controllers\ApplicationController::class, 'update'])->name('panel.update');
+    // Route::get('/account/create', [App\Http\Controllers\AccountController::class, 'create'])->name('panel.create');
+    // Route::post('/account/store', [App\Http\Controllers\AccountController::class, 'store'])->name('panel.store');
+    Route::get('/account/show/{account}', [App\Http\Controllers\AccountController::class, 'show'])->name('account.show');
+    // Route::get('/account/edit/{application}', [App\Http\Controllers\AccountController::class, 'edit'])->name('panel.edit');
+    // Route::get('/account/destroy/{application}', [App\Http\Controllers\AccountController::class, 'destroy'])->name('panel.destroy');
+    // Route::put('/account/update/{application}', [App\Http\Controllers\AccountController::class, 'update'])->name('panel.update');
 
 });
 

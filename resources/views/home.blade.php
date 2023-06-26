@@ -6,10 +6,10 @@
   <header>
     <div class="p-5 text-center bg-white shadow rounded-3 mb-5">
       <p class="col-lg-8 mx-auto fs-2 text-muted mb-0">
-        Profile
+        My Profile
       </p>
       <h1 class="display-4 text-body-emphasis mb-0">{{ Auth::user()->name}}</h1>
-      <p class="col-lg-8 mx-auto fs-7 text-primary text-uppercase">
+      <p class="col-lg-8 mx-auto fs-7 text-danger text-uppercase">
         {{ Auth::user()->getRoleNames()->first() }}
       </p>
       <p class="col-lg-8 mx-auto fs-7 text-muted">
@@ -32,7 +32,7 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">{{$application->char_name}}</h4>
+            <h4 class="my-0 fw-normal"><a href="{{route('account.show', $application->account_id)}}">{{$application->char_name}}</a></h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">

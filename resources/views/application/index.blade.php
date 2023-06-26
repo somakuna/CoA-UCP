@@ -62,6 +62,7 @@
                   <th data-field="user_od">User</th>
                   <th data-field="char_name">Character name</th>
                   <th data-sortable="true" data-field="created_at">Date applied</th>
+                  <th data-field="status">Status</th>
                   <th data-field="action" style="width:8%;">Action</th>
               </thead>
               <tbody>
@@ -69,8 +70,15 @@
                   <tr>
                       <td>{{ $application->id }}</td>
                       <td>{{ $application->user->name }}</td>
-                      <td>{{ $application->char_name }}</td>
+                      <td>
+                        @if($application->account_id)
+                        <a href="{{route('account.show', $application->account_id)}}">{{$application->char_name}}</a> 
+                        @else
+                        {{$application->char_name}}
+                        @endif
+                      </td>
                       <td>{{ $application->created_at->format('d.m.Y. H:i') }}</td>
+                      <td>{{ $application->status }}</td>
                       <td>
                         <a href="{{ route('application.show', $application) }}" title="Show" class="text-primary"><i class="bi bi-box-arrow-in-right"></i></a>
                       </td>

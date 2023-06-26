@@ -5,3 +5,7 @@ $body-bg: #f8fafc;
 $font-family-sans-serif: 'Alexandria', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+}
