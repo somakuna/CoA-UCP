@@ -13,7 +13,7 @@
         {{ $user->getRoleNames()->first() }}
       </p>
       <p class="col-lg-8 mx-auto fs-7 text-muted">
-        <strong>FORUM NAME:</strong> {{ $user->forum_name }} | <strong>FORUM ID:</strong> {{ $user->id }} | <strong>IP:</strong> {{ $user->ip }}
+        <strong>FORUM NAME:</strong> {{ $user->forum_name }} | <strong>FORUM ID:</strong> {{ $user->forum_id }} | <strong>User ID:</strong> {{ $user->id }} | <strong>IP:</strong> {{ $user->ip }}
       </p>
       
     @role('administrator')
