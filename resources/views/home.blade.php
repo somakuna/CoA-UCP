@@ -13,7 +13,7 @@
         {{ Auth::user()->getRoleNames()->first() }}
       </p>
       <p class="col-lg-8 mx-auto fs-7 text-muted">
-        <strong>FORUM NAME:</strong> {{ Auth::user()->forum_name }} | <strong>FORUM ID:</strong> {{ Auth::user()->id }} | <strong>IP:</strong> {{ Auth::user()->ip }}
+        <strong>FORUM NAME:</strong> {{ Auth::user()->forum_name }} | <strong>FORUM ID:</strong> {{ Auth::user()->forum_id }} | <strong>IP:</strong> {{ Auth::user()->ip }}
       </p>
 
       @if(Auth::user()->applications->count() < 5)
