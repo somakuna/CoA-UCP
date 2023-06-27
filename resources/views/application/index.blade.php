@@ -69,7 +69,9 @@
                   @foreach ($applications as $application)
                   <tr>
                       <td>{{ $application->id }}</td>
-                      <td>{{ $application->user->name }}</td>
+                      <td>
+                        <a href="{{route('user.show', $application->user)}}">{{$application->user->name}}</a> 
+                      </td>
                       <td>
                         @if($application->account_id)
                         <a href="{{route('account.show', $application->account_id)}}">{{$application->char_name}}</a> 

@@ -53,6 +53,17 @@
                                     required
                                 />
                             </div>
+                            <div class="col-md-12">
+                                <label class="form-label" for="number">E-mail:</label>
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    value="{{ old('email', $user->email) }}"
+                                    class="form-control bg-white @error('email') is-invalid @enderror"
+                                    required
+                                />
+                            </div>
                         </div>
                         <div class="row g-3 mt-1 justify-content-center">
                             <div class="col-auto">

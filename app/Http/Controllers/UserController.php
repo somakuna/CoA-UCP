@@ -60,6 +60,7 @@ class UserController extends Controller
             'name' => 'required',
             'forum_name' => 'required',
             'forum_id' => 'required',
+            'email' => 'required|string|email:rfc,dns|max:255|unique:users',
         ]);
         $input2 = $request->validate([
             'role' => 'required',
