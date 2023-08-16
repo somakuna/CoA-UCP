@@ -11,22 +11,15 @@
           <table 
               class="table table-sm table-striped table-bordered text-center align-middle" 
               style="white-space:nowrap"
-              data-toggle="table"
-              data-search="true"
-              data-pagination="true"
-              data-search-align="left"
-              data-search-highlight="true"
-              data-page-size="8"
-              data-show-extended-pagination="true"
           >
               <thead>
-                  <th data-field="id">ID</th>
-                  <th data-field="name">Name</th>
-                  <th data-field="forum_name">Forum name</th>
-                  <th data-sortable="forum_id" data-field="created_at">Forum ID</th>
-                  <th data-field="ip">IP</th>
-                  <th data-field="chars">Chars</th>
-                  <th data-field="action" style="width:8%;">Action</th>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Forum name</th>
+                  <th>Forum ID</th>
+                  <th>IP</th>
+                  <th>Chars</th>
+                  <th style="width:8%;">Action</th>
               </thead>
               <tbody>
                   @foreach ($users as $user)
@@ -48,6 +41,7 @@
                   @endforeach
               </tbody>
           </table>
+          {{ $users->links() }}
         </div>
       </div>
     </div>
@@ -58,21 +52,14 @@
           <table 
               class="table table-sm table-striped table-bordered text-center align-middle" 
               style="white-space:nowrap"
-              data-toggle="table"
-              data-search="true"
-              data-pagination="true"
-              data-search-align="left"
-              data-search-highlight="true"
-              data-page-size="8"
-              data-show-extended-pagination="true"
           >
               <thead>
-                  <th data-field="id">ID</th>
-                  <th data-field="name">Name</th>
-                  <th data-field="forum_name">Forum name</th>
-                  <th data-sortable="forum_id" data-field="created_at">Forum ID</th>
-                  <th data-field="chars">Chars</th>
-                  <th data-field="action" style="width:8%;">Action</th>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Forum name</th>
+                  <th>Forum ID</th>
+                  <th>Chars</th>
+                  <th style="width:8%;">Action</th>
               </thead>
               <tbody>
                   @foreach ($moderators as $user)
@@ -93,6 +80,7 @@
                   @endforeach
               </tbody>
           </table>
+          {{ $moderators->links() }}
         </div>
       </div>
     </div>
@@ -103,21 +91,14 @@
           <table 
               class="table table-sm table-striped table-bordered text-center align-middle" 
               style="white-space:nowrap"
-              data-toggle="table"
-              data-search="true"
-              data-pagination="true"
-              data-search-align="left"
-              data-search-highlight="true"
-              data-page-size="8"
-              data-show-extended-pagination="true"
           >
               <thead>
-                  <th data-field="id">ID</th>
-                  <th data-field="name">Name</th>
-                  <th data-field="forum_name">Forum name</th>
-                  <th data-sortable="forum_id" data-field="created_at">Forum ID</th>
-                  <th data-field="chars">Chars</th>
-                  <th data-field="action" style="width:8%;">Action</th>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Forum name</th>
+                  <th>Forum ID</th>
+                  <th>Chars</th>
+                  <th style="width:8%;">Action</th>
               </thead>
               <tbody>
                   @foreach ($administrators as $user)
@@ -138,6 +119,7 @@
                   @endforeach
               </tbody>
           </table>
+          {{ $administrators->links() }}
         </div>  
       </div>
     </div>

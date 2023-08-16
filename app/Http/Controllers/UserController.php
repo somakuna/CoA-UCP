@@ -28,9 +28,9 @@ class UserController extends Controller
 
     public function index()
     {
-        $moderators = User::role('moderator')->orderBy('id', 'DESC')->get();
-        $administrators = User::role('administrator')->orderBy('id', 'DESC')->get();
-        $users = User::doesntHave('roles')->orderBy('id', 'DESC')->get();
+        $moderators = User::with('applications')->role('moderator')->orderBy('id', 'DESC')->paginate(10, ['*'], 'moderators');
+        $administrators = User::with('applications')->role('administrator')->orderBy('id', 'DESC')->paginate(10, ['*'], 'administrators');
+        $users = User::with('applications')->doesntHave('roles')->orderBy('id', 'DESC')->paginate(10, ['*'], 'users');
         return view('user.index', [
             'moderators' => $moderators,
             'administrators' => $administrators,

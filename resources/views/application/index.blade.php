@@ -9,14 +9,6 @@
         <div class="table-responsive">
           <table 
               class="table table-sm table-striped table-bordered text-center align-middle" 
-              style="white-space:nowrap"
-              data-toggle="table"
-              data-search="true"
-              data-pagination="true"
-              data-search-align="left"
-              data-search-highlight="true"
-              data-page-size="8"
-              data-show-extended-pagination="true"
           >
               <thead>
                   <th data-field="id">ID</th>
@@ -49,21 +41,14 @@
           <table 
               class="table table-sm table-striped table-bordered text-center align-middle" 
               style="white-space:nowrap"
-              data-toggle="table"
-              data-search="true"
-              data-pagination="true"
-              data-search-align="left"
-              data-search-highlight="true"
-              data-page-size="8"
-              data-show-extended-pagination="true"
           >
               <thead>
-                  <th data-field="id">ID</th>
-                  <th data-field="user_od">User</th>
-                  <th data-field="char_name">Character name</th>
-                  <th data-sortable="true" data-field="created_at">Date applied</th>
-                  <th data-field="status">Status</th>
-                  <th data-field="action" style="width:8%;">Action</th>
+                  <th>ID</th>
+                  <th>User</th>
+                  <th>Character name</th>
+                  <th>Date applied</th>
+                  <th>Status</th>
+                  <th style="width:8%;">Action</th>
               </thead>
               <tbody>
                   @foreach ($applications as $application)
@@ -86,8 +71,9 @@
                       </td>
                   </tr>
                   @endforeach
-              </tbody>
+              </tbody> 
           </table>
+          {{ $applications->links() }}
         </div>
       </div>
     </div>

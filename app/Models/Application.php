@@ -10,6 +10,11 @@ class Application extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function getRouteKeyName(): string
+    {
+        return 'char_name';
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

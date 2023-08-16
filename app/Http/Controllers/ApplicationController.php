@@ -25,12 +25,12 @@ class ApplicationController extends Controller
 
     public function index()
     {
-        $applications = Application::orderBy('id', 'DESC')->get();
+        $applications = Application::with('user')->orderBy('id', 'DESC')->paginate(10, ['*'], 'applications');
         $pendingApplications = $applications->where('status', 'Pending');
-        $activities = Activity::orderBy('id', 'DESC')->paginate(8);
+        $activities = Activity::with('causer')->orderBy('id', 'DESC')->paginate(10, ['*'], 'logs');
 
-        $moderators = User::role('moderator')->get();
-        $administrators = User::role('administrator')->get();
+        $moderators = User::with('applications')->role('moderator')->get();
+        $administrators = User::with('applications')->role('administrator')->get();
 
         return view('application.index', [
             'applications' => $applications,
